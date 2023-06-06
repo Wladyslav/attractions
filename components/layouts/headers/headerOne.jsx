@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import React from 'react'
+import Image from 'next/image';
+import {signIn, signOut, useSession, getProviders} from 'next-auth/react'
 
 const HeaderOne = () => {
   return (

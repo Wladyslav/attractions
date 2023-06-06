@@ -1,6 +1,6 @@
 import "@styles/globals.css";
 import { Inter } from "next/font/google";
-import HeaderOne from "@components/layouts/headers/headerOne";
+import HeaderOne from "@components/layouts/headers/HeaderOne";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +16,6 @@ export default function RootLayout({ children }) {
         <main>
         <HeaderOne/>
             {children}
-            
         </main>
       </body>
     </html>
