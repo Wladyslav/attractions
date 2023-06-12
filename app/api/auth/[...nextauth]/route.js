@@ -2,8 +2,7 @@ import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import dbConnect from '../../../../utils/dbConnect';
 
-import User from '@models/user';
-
+import User from '@models/Users';
 
 
 const handler = NextAuth({
@@ -32,8 +31,14 @@ const handler = NextAuth({
         if (!userExists) {
           await User.create({
             email: profile.email,
-            username: profile.name.replace(" ", "").toLowerCase(),
-            image: profile.picture,
+            name: profile.name.replace(" ", "").toLowerCase(),
+            profilePicture: profile.picture,
+            // Set default values for additional fields
+            password: '', // You should handle this properly, don't leave it empty
+            role: 'user',
+            createdAt: Date.now(),
+            updatedAt: Date.now(),
+            phoneNumber: '', // You might want to handle this properly too
           });
         }
 
